@@ -1,0 +1,85 @@
+@mixin max($width) {
+    @media (max-width: $width+px) {
+        @content;
+    }
+}
+$active: #0d52ff;
+
+.nav__toggle_menu {
+    cursor: pointer;
+    direction: rtl;
+    width: 35px;    
+    @include max(840) {
+        display: block;
+    }
+    @include max(500) { width: 30px; }
+    @include max(400) { width: 27px; }
+    .bar1, .bar2, .bar3 {
+        height: 4px;
+        background-color: #000;
+        margin: 6px 0;        
+        transition: .4s;
+        border-radius: 4px;
+        width: 0;
+        @include max(480) { margin: 5px 0 }
+        @include max(400) { margin: 4px 0 }        
+    }    
+    .bar1 {
+        transition: .2s linear;
+    }
+    .bar2 {
+        transition: .2s linear .2s;
+    }
+    .bar3 {
+        transition: .3s linear .4s;
+    }
+
+    &.load {
+        .bar1 {
+            width: 28px;
+            @include max(480) { width: 25px; }
+            @include max(400) { width: 22px }
+        }
+        .bar2 {
+            width: 23px;
+            @include max(480) { width: 20px; }
+            @include max(400) { width: 17px }            
+        }
+        .bar3 {
+            width: 32px;
+            @include max(480) { width: 30px; }
+            @include max(400) { width: 27px }
+        }
+    }
+
+    &.mouseover {
+        .bar1, .bar2, .bar3 {
+            margin-right: 2px;
+            background-color: $active;
+        }
+        .bar1 {
+            transition: .15s linear;
+        }
+        .bar2 {
+            transition: .15s linear .15s;
+        }
+        .bar3 {
+            transition: .15s linear .3s;
+        }
+    }
+    &.mouseout {
+        .bar1, .bar2, .bar3 {
+            margin-right: 0px;
+            background-color: #000;
+        }
+        .bar3 {
+            transition: .15s linear;
+        }
+        .bar2 {
+            transition: .15s linear .15s;
+        }
+        .bar1 {
+            transition: .15s linear .3s;
+        }
+    }
+}

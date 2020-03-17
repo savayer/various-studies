@@ -1,0 +1,122 @@
+.nav__toggle_menu {
+    cursor: pointer;
+    direction: rtl;
+    width: 35px;
+}
+@media (max-width: 840px) {
+    .nav__toggle_menu {
+        display: block;
+    }
+}
+@media (max-width: 500px) {
+    .nav__toggle_menu {
+        width: 30px;
+    }
+}
+@media (max-width: 400px) {
+    .nav__toggle_menu {
+        width: 27px;
+    }
+}
+.nav__toggle_menu .bar1,
+.nav__toggle_menu .bar2,
+.nav__toggle_menu .bar3 {
+    height: 4px;
+    background-color: #000;
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 4px;
+    width: 0;
+}
+@media (max-width: 480px) {
+    .nav__toggle_menu .bar1,
+    .nav__toggle_menu .bar2,
+    .nav__toggle_menu .bar3 {
+        margin: 5px 0;
+    }
+}
+@media (max-width: 400px) {
+    .nav__toggle_menu .bar1,
+    .nav__toggle_menu .bar2,
+    .nav__toggle_menu .bar3 {
+        margin: 4px 0;
+    }
+}
+.nav__toggle_menu .bar1 {
+    transition: 0.2s linear;
+}
+.nav__toggle_menu .bar2 {
+    transition: 0.2s linear 0.2s;
+}
+.nav__toggle_menu .bar3 {
+    transition: 0.3s linear 0.4s;
+}
+.nav__toggle_menu.load .bar1 {
+    width: 28px;
+}
+@media (max-width: 480px) {
+    .nav__toggle_menu.load .bar1 {
+        width: 25px;
+    }
+}
+@media (max-width: 400px) {
+    .nav__toggle_menu.load .bar1 {
+        width: 22px;
+    }
+}
+.nav__toggle_menu.load .bar2 {
+    width: 23px;
+}
+@media (max-width: 480px) {
+    .nav__toggle_menu.load .bar2 {
+        width: 20px;
+    }
+}
+@media (max-width: 400px) {
+    .nav__toggle_menu.load .bar2 {
+        width: 17px;
+    }
+}
+.nav__toggle_menu.load .bar3 {
+    width: 32px;
+}
+@media (max-width: 480px) {
+    .nav__toggle_menu.load .bar3 {
+        width: 30px;
+    }
+}
+@media (max-width: 400px) {
+    .nav__toggle_menu.load .bar3 {
+        width: 27px;
+    }
+}
+.nav__toggle_menu.mouseover .bar1,
+.nav__toggle_menu.mouseover .bar2,
+.nav__toggle_menu.mouseover .bar3 {
+    margin-right: 2px;
+    background-color: #0d52ff;
+}
+.nav__toggle_menu.mouseover .bar1 {
+    transition: 0.15s linear;
+}
+.nav__toggle_menu.mouseover .bar2 {
+    transition: 0.15s linear 0.15s;
+}
+.nav__toggle_menu.mouseover .bar3 {
+    transition: 0.15s linear 0.3s;
+}
+.nav__toggle_menu.mouseout .bar1,
+.nav__toggle_menu.mouseout .bar2,
+.nav__toggle_menu.mouseout .bar3 {
+    margin-right: 0px;
+    background-color: #000;
+}
+.nav__toggle_menu.mouseout .bar3 {
+    transition: 0.15s linear;
+}
+.nav__toggle_menu.mouseout .bar2 {
+    transition: 0.15s linear 0.15s;
+}
+.nav__toggle_menu.mouseout .bar1 {
+    transition: 0.15s linear 0.3s;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>svg animate</title>
+    <link rel="stylesheet" href="css/close_icon.css">
+    <link rel="stylesheet" href="css/menu_icon.css">
+    <link rel="stylesheet" href="css/lang_icon.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 2rem;
+        }
+        .flex {
+            display: flex;
+            flex-wrap: wrap;            
+        }
+        .flex__item {
+            width: 150px;
+            display: flex;
+            margin: 2rem auto;
+        }
+        .centered {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex">
+            <div class="flex__item">                
+                <svg class="close_icon centered" viewBox="0 0 42 50">
+                    <path class="close_icon__arc" style="fill:none;stroke:#231f20;stroke-width:2;stroke-miterlimit:10"
+                        d="M 0.58123819,5.8 C 4.7812382,2.8 9.9812382,1 15.581238,1 c 14.2,0 25.7,11.5 25.7,25.7 0,9.9 -5.6,18.5 -13.8,22.8" />
+                    <line class="line1" style="fill:none;stroke:#231f20;stroke-width:5;stroke-miterlimit:10" x1="5.0812378" y1="16.800001"
+                        x2="25.58124" y2="37.299999" />
+                    <line class="line2" style="fill:none;stroke:#231f20;stroke-width:5;stroke-miterlimit:10" x1="25.58124" y1="16.800001"
+                        x2="5.0812378" y2="37.299999" />
+                </svg>                
+            </div>
+            <div class="flex__item">
+                <div id="toggle_menu" class="nav__toggle_menu centered">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>  
+            </div>
+            <div class="flex__item">
+                <div class="nav__lang_wrapper centered">
+                    <div class="flipper">
+                        <a href="#" class="nav__toggle_lang front">
+                            <span>en</span>
+                        </a>
+                        <a href="#" class="nav__toggle_lang back">
+                            <span>ru</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/menu_icon.js"></script>
+    <script src="js/lang_icon.js"></script>
+</body>
+</html>
