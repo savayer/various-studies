@@ -1,0 +1,60 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.input_wrapper {
+    position: relative;
+}
+.input_wrapper button[type="reset"] {
+    position: absolute;
+    top: 7px;
+    bottom: 10px;
+    right: 28px;
+    color: #fd5b56;
+    border: 0;
+    background: transparent;
+    display: none;
+    font-size: 24px;
+    outline: none;
+    font-weight: bold;
+}
+.input_wrapper .form-search-button {
+    padding: 0;
+    position: absolute;
+    top: 13px;
+    bottom: 10px;
+    right: 7px;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+.input_wrapper .form-search-button span {
+    color: #1e0547;
+}
+.input_wrapper .form-input {
+    margin: 15px 0;
+    border-radius: 32px;
+    border: 2px solid #1e0547;
+    background-color: #fff;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 8px 48px 8px 12px;
+    outline: none;
+}
+.input_wrapper .form-input::placeholder {
+    color: #1e0547;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 16px;
+}
+.input_wrapper .form-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+.input_wrapper .form-input:valid ~ button[type="reset"] {
+    display: block;
+}
