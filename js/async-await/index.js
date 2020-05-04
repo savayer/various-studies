@@ -38,10 +38,14 @@ fetch_async.onclick = () => {
 }
 
 async_func.onclick = () => {
-    async function f() {
+    async function f() { //Здесь нужно думать о вызове функции async, как о промисе.
         return 1;
-        // return Promise.resolve(1); the same
+        // return Promise.resolve(1); // the same
     }
+
+    /* function f() { // the same
+        return new Promise(r => r(111))
+    } */
 
     f().then(alert);
 }
@@ -78,10 +82,10 @@ get_fullname_github_user.onclick = () => {
     }
 
     async function demoGithubUser() {
-        let name = prompt("Введите логин?", "acrossoffwest");
+        let name = prompt("Введите логин", "acrossoffwest");
 
         try {
-            const user = await loadJson(`https://api.github.com/users/${name}`)            
+            const user = await loadJson(`https://api.github.com/users/${name}`)
             alert(`Полное имя: ${user.name}.`);
         } catch (err) {
             if (err instanceof HttpError && err.response.status == 404) {
@@ -96,3 +100,26 @@ get_fullname_github_user.onclick = () => {
     demoGithubUser();
 
 }
+
+/**************************************** */
+
+/* async function wait() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    return 10;
+} */
+
+function wait() {
+    return new Promise(r => {
+        new Promise(rr => setTimeout(rr, 1000)).then(() => r(10))
+    })
+}
+
+function f() {
+    // ...что здесь написать?
+    // чтобы вызвать wait() и дождаться результата "10" от async–функции
+    // не забывайте, здесь нельзя использовать "await"
+    wait().then(data => console.log(data))
+}
+
+f();
