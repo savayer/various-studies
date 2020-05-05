@@ -17,7 +17,7 @@ gulp.task('clean', () => {
 })
 
 gulp.task('img', () => {
-    return gulp.src('./src/img/*')
+    return gulp.src('./src/img/**/*')
         .pipe(gulp.dest('./dist/img'))
         .on("end", browserSync.reload);
 })
