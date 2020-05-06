@@ -15,18 +15,13 @@ body {
 .content_beige,
 .content_dummy,
 .footer_designed,
-.footer_contact {
+.footer_contact__overlay {
   padding: 1.75rem 2rem;
 }
 
 .grid {
   display: grid;
-  /*     grid-template-areas: 
-        "a a a a a a b b b"
-        "c c c c d d d d d"
-        "c c c c e e e e e"
-        "f f f g g g g g g"; */
-  grid-template-areas: "a a a a b b" "c c d d d d" "c c e e e e" "f f g g g g";
+  grid-template-areas: "a a a a a b b b b" "c c c c d d d d d" "c c c c e e e e e" "f f f g g g g g g";
 }
 
 .header_bg {
@@ -150,17 +145,44 @@ p {
 
 .footer_contact {
   background: url(../img/contact_bg.png) center/cover no-repeat;
+  position: relative;
+}
+
+.footer_contact__overlay {
+  background: rgba(90, 102, 95, 0.5);
 }
 
 .footer_contact form {
   margin: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 620px;
+}
+
+.footer_contact label {
+  width: 48%;
+}
+
+.footer_contact label:last-child {
+  width: 100%;
+  margin-top: 15px;
 }
 
 .footer_contact input,
 .footer_contact textarea {
+  width: 100%;
+  color: #fff;
+  background: none;
   border: 1px solid;
   border-radius: 5px;
-  padding: .375em .5em;
+  padding: 1em 1em;
+  border-color: #fff;
+}
+
+.footer_contact input:focus,
+.footer_contact textarea:focus {
+  outline: none;
 }
 
 .footer_contact input::placeholder,
@@ -170,11 +192,12 @@ p {
 }
 
 .social {
-  margin: 1.25rem 0;
+  margin: 1.5rem 0;
 }
 
 .social__title {
   color: #fff;
+  margin-bottom: 1rem;
 }
 
 .social__items {
@@ -187,5 +210,6 @@ p {
 }
 
 .copyright {
+  margin-top: 1rem;
   color: #fff;
 }
