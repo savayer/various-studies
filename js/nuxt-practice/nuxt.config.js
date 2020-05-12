@@ -5,7 +5,6 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -17,9 +16,14 @@ module.exports = {
       lang: 'sass'
     }
   ],
-  loading: { color: '#3B8070' },  
+  loading: { color: '#fcd30a' },
+  plugins: [
+    { src: '~/plugins/vue-masonry-css', ssr: false },
+    { src: '~/plugins/vue-meta'}
+  ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv'
   ],
   build: {
     /*

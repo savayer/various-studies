@@ -24,35 +24,33 @@
         
         <div class="posts">
           <div class="post" v-for="post in posts" :key="post.id">
-            <router-link :to="`/posts/${post.id}-${post.attributes.slug}`">
+            <nuxt-link :to="`/posts/${post.id}-${post.attributes.slug}`">
               <img :src="post.attributes.image" :alt="post.attributes.postTitle">
-            </router-link>
-            <router-link :to="`/posts/${post.id}-${post.attributes.slug}`" class="pagetitle">
+            </nuxt-link>
+            <nuxt-link :to="`/posts/${post.id}-${post.attributes.slug}`" class="pagetitle">
               {{ post.attributes.postTitle }} 
-            </router-link>
+            </nuxt-link>
             <div class="introtext"> {{ post.attributes.introtext }} </div>
           </div>
         </div>
-        <router-link to="posts/" style="text-decoration:none">
+        <nuxt-link to="posts/" style="text-decoration:none">
           <button class="btn btn-green-content btn-center">
             Все посты
           </button>
-        </router-link>
+        </nuxt-link>
         
       </section>
     </transition>
 
   </div>
 </template>
-<script>
-  import axios from 'axios'
+<script>  
 
   export default {
     name: "Home",
     data() {
       return {
-        show: false,
-        posts: []
+        show: false
       }
     },
     computed: {
@@ -66,13 +64,10 @@
         { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' }        
       ],
     },
-    mounted () {
-      axios
-        .get(`${process.env.VUE_APP_SITE_URL}/api/articles/all`)
-        .then(response => {
-          let posts = response.data          
-          this.posts = posts.reverse().splice(0,2)
-        })
+    async asyncData({ $axios }) {
+      let posts = await $axios.$get(`${process.env.VUE_APP_SITE_URL}/api/articles/all`)
+      posts = posts.reverse().splice(0, 2)
+      return { posts }
     }
   };
 </script>
