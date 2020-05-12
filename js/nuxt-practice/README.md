@@ -2,6 +2,8 @@
 
 > Nuxt.js project
 
+this is the copy of the [web journal spa on vue](https://github.com/savayer/web-journal)
+
 ## Build Setup
 
 ``` bash
