@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'universal',
+  transition: 'pagefade',
   head: {
     title: 'nuxt-app',
     meta: [
@@ -16,7 +17,7 @@ module.exports = {
       lang: 'sass'
     }
   ],
-  loading: { color: '#fcd30a' },
+  loading: { color: 'transparent' },
   plugins: [
     { src: '~/plugins/vue-masonry-css', ssr: false },
     { src: '~/plugins/vue-meta'}

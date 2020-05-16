@@ -33,7 +33,7 @@
 
             <div class="filter-icon">
               <div class="filter-img-wrapper open-filter" @click="openFilter = !openFilter">
-                <img src="/img/filter.svg" class="filter-img" title="Filter" alt="filter">
+                <img src="@/assets/img/filter.svg" class="filter-img" title="Filter" alt="filter">
               </div>              
             </div>
             <transition name="slide-fade">
@@ -52,8 +52,7 @@
             :gutter="30"
             >           
           
-            <div class="post" v-for="(post, index) in changeCheckedTags" :key="index">            
-              <!-- <nuxt-link :to="{ name: 'single-post', params: { slug: post.slug, img: post.img } }"> -->
+            <div class="post" v-for="(post, index) in changeCheckedTags" :key="index">
               <nuxt-link :to="`/posts/${post.id}-${post.attributes.slug}`">
                 <img :src="post.attributes.image" :alt="post.attributes.postTitle">
               </nuxt-link>
@@ -112,7 +111,7 @@
     },
     methods: {
       emptySearchCondition (s) {
-        s ? this.showSearchResults = true : this.showSearchResults = false
+        this.showSearchResults = s ?  true : false
       },
     },
     metaInfo: {

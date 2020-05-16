@@ -1,9 +1,9 @@
 <template>
     <div class="breadcrumbs">
         <span v-for="(crumb, index) in bc" :key="index">
-            <router-link class="crumb" :to="crumb.link" v-if="!crumb.thisPost">
+            <nuxt-link class="crumb" :to="crumb.link" v-if="!crumb.thisPost">
                 {{ crumb.text }}
-            </router-link>
+            </nuxt-link>
             <span class="crumb" v-else>
                 {{ crumb.text }}
             </span>
