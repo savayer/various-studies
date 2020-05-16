@@ -50,7 +50,7 @@
     name: "Home",
     data() {
       return {
-        show: false
+        show: false,        
       }
     },
     computed: {
@@ -61,7 +61,11 @@
     metaInfo: {
       title: 'Web Journal',
       meta: [
-        { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' }        
+        { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
+        { vmid: 'og:title', property: 'og:title', content: 'Web Journal' },
+        { vmid: 'og:image', property: 'og:image', content: '/assets/img/slide-3.jpg' },
+        { vmid: 'og:description', property: 'og:description', content: 'Savayer Web Journal, a little bit of delirium' },
+        
       ],
     },
     async asyncData({ $axios }) {

@@ -117,7 +117,10 @@
     metaInfo: {
       title: 'Web Journal Blog',
       meta: [
-        { vmid: 'description', property: 'description', content: 'Savayer Web Journal Blog, a little bit of delirium' }        
+        { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
+        { vmid: 'og:title', property: 'og:title', content: 'Web Journal Blog' },
+        { vmid: 'og:image', property: 'og:image', content: '/assets/img/slide-3.jpg' },
+        { vmid: 'og:description', property: 'og:description', content: 'Savayer Web Journal, a little bit of delirium' },
       ],
     },
     async asyncData({$axios}) {

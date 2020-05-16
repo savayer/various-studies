@@ -26,6 +26,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv'
   ],
+  /* buildDir: 'nuxt-dist', */
   build: {
     /*
     ** Run ESLint on save

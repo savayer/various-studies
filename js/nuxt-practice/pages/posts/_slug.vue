@@ -40,10 +40,17 @@
       }
     },
     metaInfo () {
+      const title = this.post.postTitle
+      const image = this.post.image
+      const introtext = this.post.content.slice(0, 50)
       return {
-        title: this.post.postTitle ? this.post.postTitle  + ' | Web Journal' : '' + ' Web Journal',
+        title,
+        titleTemplate: '%s | Web Journal',
         meta: [
-          { vmid: 'description', property: 'description', content: 'Savayer Web Journal Blog, a little bit of delirium' }        
+          { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
+          { vmid: 'og:title', property: 'og:title', content: title },
+          { vmid: 'og:image', property: 'og:image', content: image },
+          { vmid: 'og:description', property: 'og:description', content: introtext },
         ],
       }      
     },
