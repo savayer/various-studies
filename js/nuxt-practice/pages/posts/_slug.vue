@@ -41,8 +41,8 @@
     },
     metaInfo () {
       const title = this.post.postTitle
-      const image = this.post.image
-      const introtext = this.post.content.slice(0, 50)
+      const image = this.post.image      
+      const introtext = this.post.introtext + '...'
       return {
         title,
         titleTemplate: '%s | Web Journal',

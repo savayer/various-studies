@@ -58,20 +58,27 @@
         return this.show ? "overlay" : "overlay skew";
       }
     },
-    metaInfo: {
-      title: 'Web Journal',
-      meta: [
-        { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
-        { vmid: 'og:title', property: 'og:title', content: 'Web Journal' },
-        { vmid: 'og:image', property: 'og:image', content: '/assets/img/slide-3.jpg' },
-        { vmid: 'og:description', property: 'og:description', content: 'Savayer Web Journal, a little bit of delirium' },
-        
-      ],
+    metaInfo() {
+      const currentUrl = this.currentUrl
+      return {
+        title: 'Web Journal',
+        meta: [
+          { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
+          { vmid: 'og:title', property: 'og:title', content: 'Web Journal' },
+          { vmid: 'og:url', property: 'og:url', content: currentUrl },
+          { vmid: 'og:image', property: 'og:image', content: currentUrl + '/bg.jpg' },
+          { vmid: 'og:description', property: 'og:description', content: 'Savayer Web Journal, a little bit of delirium' },
+          
+        ],
+      }
     },
-    async asyncData({ $axios }) {
+    async asyncData({ $axios, req }) {
+      const currentUrl = req 
+        ? 'http://'+req.headers.host
+        : window.location.origin
       let posts = await $axios.$get(`${process.env.VUE_APP_SITE_URL}/api/articles/all`)
       posts = posts.reverse().splice(0, 2)
-      return { posts }
+      return { posts, currentUrl }
     }
   };
 </script>

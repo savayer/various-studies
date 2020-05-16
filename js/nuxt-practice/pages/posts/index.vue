@@ -87,7 +87,7 @@
         search: '',
         showSearchResults: false,
         openFilter: false,
-        checkedTags: []        
+        checkedTags: []
       }
     },
     computed: {
@@ -114,20 +114,26 @@
         this.showSearchResults = s ?  true : false
       },
     },
-    metaInfo: {
-      title: 'Web Journal Blog',
-      meta: [
-        { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
-        { vmid: 'og:title', property: 'og:title', content: 'Web Journal Blog' },
-        { vmid: 'og:image', property: 'og:image', content: '/assets/img/slide-3.jpg' },
-        { vmid: 'og:description', property: 'og:description', content: 'Savayer Web Journal, a little bit of delirium' },
-      ],
+    metaInfo () {
+      const currentUrl = this.currentUrl
+      return {
+        title: 'Web Journal Blog',
+        meta: [
+          { vmid: 'description', property: 'description', content: 'Savayer Web Journal, a little bit of delirium' },
+          { vmid: 'og:title', property: 'og:title', content: 'Web Journal Blog' },
+          { vmid: 'og:image', property: 'og:image', content: currentUrl + '/bg.jpg' },
+          { vmid: 'og:description', property: 'og:description', content: 'Savayer Web Journal, a little bit of delirium' },
+        ],
+      }      
     },
-    async asyncData({$axios}) {
+    async asyncData({$axios, req}) {
       let tags = []
       let breadcrumbs = []
       let posts = await $axios.$get(`${process.env.VUE_APP_SITE_URL}/api/articles/all`)
-
+      const currentUrl = req 
+        ? 'http://'+req.headers.host
+        : window.location.origin
+    
       posts.reverse().forEach(post => {
         post.attributes.tags.forEach(tag => {
           if (!tags.map(tagName => tagName.name).includes( tag.name )) {
@@ -140,7 +146,7 @@
         { text: 'Блог', link: '/posts', thisPost: true }            
       )
 
-      return { posts, tags, breadcrumbs }
+      return { posts, tags, breadcrumbs, currentUrl }
     },
     components: {
       Breadcrumbs
